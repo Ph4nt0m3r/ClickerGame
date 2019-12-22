@@ -11,7 +11,7 @@
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:layout_marginTop="20dp"
-        android:background="#B70024FF"
+        android:background="#FF8A80"
         android:onClick="clicking"
         android:text="CHOP DOWN SOME TREES!"
         app:layout_constraintEnd_toEndOf="@+id/textView"
