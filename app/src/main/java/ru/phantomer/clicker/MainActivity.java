@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView output;
     private TextView output2;
     private TextView output3;
-    private double itemAmount = 0;
+    public double itemAmount = 0;
     private int upgrade = 100;
     private int producing = 1;
     private int upgradeCounter = 0;
@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         output2.setText("Цена апгрейда: " + "\n" + upgrade);
         output3 = findViewById(R.id.button);
         output3.setBackgroundColor(Color.parseColor("#357d2f"));
-
     }
 
     //Улучшения и вывод текста на textView и на TextView2
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         if (itemAmount >= upgrade) {
             itemAmount -= upgrade;
             producing++;
-            upgrade = upgrade + upgrade / 10 * producing;
+            upgrade = upgrade + upgrade/10*producing;
             upgradeCounter++;
             output2.setText("Цена апгрейда: " + "\n" + upgrade);
 
@@ -88,10 +87,14 @@ public class MainActivity extends AppCompatActivity {
             output.setText("Кол-во углерода: " + itemAmount + "\n" + "LVL= " + upgradeCounter);
     }
 
-    //Определение ресурсов и его вывод на кнопку
+    //Определение ресурсов и их вывод на кнопку
     public String nowIs() {
+
+        
+
         if (upgradeCounter < 5) {
             output3.setText("CHOP DOWN SOME TREES!");
+            output3.setTextColor(Color.parseColor("#ffffff")); //белый
             output3.setBackgroundColor(Color.parseColor("#357d2f")); //зелёный
             return "Дерево";
         } else if (upgradeCounter <= 10) {
@@ -134,9 +137,9 @@ public class MainActivity extends AppCompatActivity {
             return "Углерод";
         }
 
-//TODO: + 50. + Сделать обнуление ресурсов после перехода на новый.
+//TODO: + 50. + Сделать обнуление ресурсов после перехода на новый. + Сменить фон на картинку
 
         output3.setText("Antimatter!");
         return "Антиматерия";
+        }
     }
-}
