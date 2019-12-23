@@ -89,8 +89,49 @@ public class MainActivity extends AppCompatActivity {
 
     //Определение ресурсов и их вывод на кнопку
     public String nowIs() {
-
-        
+/*
+     int addAmount=0;
+        if (upgradeCounter==5 & addAmount==0) {
+            itemAmount = 0;
+             addAmount++;
+        }
+        if (upgradeCounter==10 & addAmount==1) {
+            itemAmount = 0;
+            addAmount++;
+        }
+        if (upgradeCounter==15 & addAmount==2){
+            itemAmount = 0;
+            addAmount++;
+        }
+        if(upgradeCounter==20 & addAmount==3){
+            itemAmount = 0;
+            addAmount++;
+        }
+        if(upgradeCounter==25 & addAmount==4) {
+            itemAmount = 0;
+            addAmount++;
+        }
+        if(upgradeCounter==30 & addAmount==5) {
+            itemAmount = 0;
+            addAmount++;
+        }
+        if(upgradeCounter==35 & addAmount==6){
+            itemAmount = 0;
+            addAmount++;
+        }
+        if(upgradeCounter==40 & addAmount==7){
+            itemAmount = 0;
+            addAmount++;
+        }
+        if(upgradeCounter==45 & addAmount==8){
+            itemAmount = 0;
+            addAmount++;
+        }
+        if(upgradeCounter==50 & addAmount==9) {
+            itemAmount = 0;
+            addAmount++;
+        }
+*/
 
         if (upgradeCounter < 5) {
             output3.setText("CHOP DOWN SOME TREES!");
