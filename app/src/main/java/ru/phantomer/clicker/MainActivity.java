@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private int upgrade = 100;
     private int producing = 1;
     private int upgradeCounter = 0;
+    public int addAmount=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,49 +90,49 @@ public class MainActivity extends AppCompatActivity {
 
     //Определение ресурсов и их вывод на кнопку
     public String nowIs() {
-/*
-     int addAmount=0;
-        if (upgradeCounter==5 & addAmount==0) {
-            itemAmount = 0;
-             addAmount++;
-        }
-        if (upgradeCounter==10 & addAmount==1) {
+
+
+        if (upgradeCounter==5 && addAmount==0) {
             itemAmount = 0;
             addAmount++;
         }
-        if (upgradeCounter==15 & addAmount==2){
+        else if (upgradeCounter==10 && addAmount==1) {
             itemAmount = 0;
             addAmount++;
         }
-        if(upgradeCounter==20 & addAmount==3){
+       else if (upgradeCounter==15 && addAmount==2){
             itemAmount = 0;
             addAmount++;
         }
-        if(upgradeCounter==25 & addAmount==4) {
+       else if(upgradeCounter==20 && addAmount==3){
             itemAmount = 0;
             addAmount++;
         }
-        if(upgradeCounter==30 & addAmount==5) {
+        else if(upgradeCounter==25 && addAmount==4) {
             itemAmount = 0;
             addAmount++;
         }
-        if(upgradeCounter==35 & addAmount==6){
+        else if(upgradeCounter==30 && addAmount==5) {
             itemAmount = 0;
             addAmount++;
         }
-        if(upgradeCounter==40 & addAmount==7){
+        else if(upgradeCounter==35 && addAmount==6){
             itemAmount = 0;
             addAmount++;
         }
-        if(upgradeCounter==45 & addAmount==8){
+        else if(upgradeCounter==40 && addAmount==7){
             itemAmount = 0;
             addAmount++;
         }
-        if(upgradeCounter==50 & addAmount==9) {
+        else if(upgradeCounter==45 && addAmount==8){
             itemAmount = 0;
             addAmount++;
         }
-*/
+        else if(upgradeCounter==50 && addAmount==9) {
+            itemAmount = 0;
+            addAmount++;
+        }
+
 
         if (upgradeCounter < 5) {
             output3.setText("CHOP DOWN SOME TREES!");
