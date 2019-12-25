@@ -9,14 +9,15 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="56dp"
         android:background="#357D2F"
         android:onClick="clicking"
         android:text="CHOP DOWN SOME TREES!"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -32,7 +33,7 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="165dp"
+        android:layout_width="150dp"
         android:layout_height="57dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#93FF80"
@@ -44,12 +45,26 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="164dp"
+        android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_marginTop="8dp"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/button2"
         app:layout_constraintStart_toStartOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="24dp"
+        android:background="#C9FF0000"
+        android:onClick="prestige"
+        android:text="Prestige"
+        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toTopOf="@+id/button"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
