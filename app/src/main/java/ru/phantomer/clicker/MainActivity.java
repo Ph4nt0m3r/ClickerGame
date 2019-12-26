@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             itemAmount -= upgrade;
             clickingProducing++;
             upgradeProducing++;
-            upgrade = upgrade + upgrade / 10 * upgradeProducing; //формулу поменять.
+            upgrade = upgrade + (upgrade+upgrade/10 * upgradeProducing)/10 * (upgradeProducing+1); //Наконец?
             upgradeCounter++;
             output2.setText("Цена апгрейда: " + "\n" + upgrade);
 
@@ -66,6 +66,14 @@ public class MainActivity extends AppCompatActivity {
                 output.setText("Кол-во железа: " + itemAmount + "\n" + "LVL= " + upgradeCounter + "\n"+ "PRESTIGE LVL= " + prestige);
             else if (nowIs().equals("Углерод"))
                 output.setText("Кол-во углерода: " + itemAmount + "\n" + "LVL= " + upgradeCounter + "\n"+ "PRESTIGE LVL= " + prestige);
+            else if (nowIs().equals("Сурьма"))
+                output.setText("Кол-во сурьмы: " + itemAmount + "\n" + "LVL= " + upgradeCounter + "\n"+ "PRESTIGE LVL= " + prestige);
+            else if (nowIs().equals("Ртуть"))
+                output.setText("Кол-во ртути: " + itemAmount + "\n" + "LVL= " + upgradeCounter + "\n"+ "PRESTIGE LVL= " + prestige);
+            else if (nowIs().equals("Цинк"))
+                output.setText("Кол-во цинка: " + itemAmount + "\n" + "LVL= " + upgradeCounter + "\n"+ "PRESTIGE LVL= " + prestige);
+            else if (nowIs().equals("Сера"))
+                output.setText("Кол-во серы: " + itemAmount + "\n" + "LVL= " + upgradeCounter + "\n"+ "PRESTIGE LVL= " + prestige);
         }
     }
 
@@ -92,6 +100,14 @@ public class MainActivity extends AppCompatActivity {
             output.setText("Кол-во железа: " + itemAmount + "\n" + "LVL= " + upgradeCounter + "\n"+ "PRESTIGE LVL= " + prestige);
         else if (nowIs().equals("Углерод"))
             output.setText("Кол-во углерода: " + itemAmount + "\n" + "LVL= " + upgradeCounter + "\n"+ "PRESTIGE LVL= " + prestige);
+        else if (nowIs().equals("Сурьма"))
+            output.setText("Кол-во сурьмы: " + itemAmount + "\n" + "LVL= " + upgradeCounter + "\n"+ "PRESTIGE LVL= " + prestige);
+        else if (nowIs().equals("Ртуть"))
+            output.setText("Кол-во ртути: " + itemAmount + "\n" + "LVL= " + upgradeCounter + "\n"+ "PRESTIGE LVL= " + prestige);
+        else if (nowIs().equals("Цинк"))
+            output.setText("Кол-во цинка: " + itemAmount + "\n" + "LVL= " + upgradeCounter + "\n"+ "PRESTIGE LVL= " + prestige);
+        else if (nowIs().equals("Сера"))
+            output.setText("Кол-во серы: " + itemAmount + "\n" + "LVL= " + upgradeCounter + "\n"+ "PRESTIGE LVL= " + prestige);
     }
 
     //Определение ресурсов и их вывод на кнопку
@@ -172,6 +188,30 @@ public class MainActivity extends AppCompatActivity {
             output3.setTextColor(Color.parseColor("#ffffff")); //белый
             output3.setBackgroundColor(Color.parseColor("#000000")); //черный
             return "Углерод";
+
+        } else if (upgradeCounter<= 55){
+            output3.setText("PRODUCE SOME ANTIMONY!");
+            output3.setTextColor(Color.parseColor("#000000")); //черный
+            output3.setBackgroundColor(Color.parseColor("#b6f4fa")); //бело-голубой
+            return "Сурьма";
+        }
+        else if (upgradeCounter<=60){
+            output3.setText("PRODUCE SOME QUICKSILVER!");
+            output3.setTextColor(Color.parseColor("#000000")); //черный
+            output3.setBackgroundColor(Color.parseColor("#d6d6d6")); //серебристый
+            return "Ртуть";
+        }
+        else if (upgradeCounter<=65){
+            output3.setText("PRODUCE SOME ZINC!");
+            output3.setTextColor(Color.parseColor("#000000")); //черный
+            output3.setBackgroundColor(Color.parseColor("#d7eafc")); //бело-синий
+            return "Цинк";
+        }
+        else if (upgradeCounter<=70){
+            output3.setText("PRODUCE SOME SULFUR!");
+            output3.setTextColor(Color.parseColor("#000000")); //черный
+            output3.setBackgroundColor(Color.parseColor("#e6f725")); //ярко-желтый
+            return "Сера";
         }
 
 //TODO: + 50. + Сменить фон на картинку + формулу поменять.
