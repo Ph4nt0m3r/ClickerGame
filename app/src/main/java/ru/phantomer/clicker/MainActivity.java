@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         if (itemAmount >= upgrade) {
             itemAmount -= upgrade;
             clickingProducing++;
-            upgrade += 10*clickingProducing; //DID IT
+            upgrade += 10 * clickingProducing; //DID IT
             upgradeCounter++;
             output2.setText("UPGRADE!" + "\n" + "Цена апгрейда: " + "\n" + upgrade);
 
@@ -75,6 +75,14 @@ public class MainActivity extends AppCompatActivity {
                 output.setText("Кол-во цинка: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
             else if (nowIs().equals("Сера"))
                 output.setText("Кол-во серы: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+            else if (nowIs().equals("Мышьяк"))
+                output.setText("Кол-во мышьяка: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+            else if (nowIs().equals("Висмут"))
+                output.setText("Кол-во висмута: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+            else if (nowIs().equals("Фосфор"))
+                output.setText("Кол-во фосфора: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+            else if (nowIs().equals("Кобальт"))
+                output.setText("Кол-во кобальта: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
         }
     }
 
@@ -109,6 +117,17 @@ public class MainActivity extends AppCompatActivity {
             output.setText("Кол-во цинка: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
         else if (nowIs().equals("Сера"))
             output.setText("Кол-во серы: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+
+        else if (nowIs().equals("Мышьяк"))
+            output.setText("Кол-во мышьяка: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+        else if (nowIs().equals("Висмут"))
+            output.setText("Кол-во висмута: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+        else if (nowIs().equals("Фосфор"))
+            output.setText("Кол-во фосфора: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+        else if (nowIs().equals("Кобальт"))
+            output.setText("Кол-во кобальта: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+
+
     }
 
     //Определение ресурсов и их вывод на кнопку
@@ -154,6 +173,18 @@ public class MainActivity extends AppCompatActivity {
             itemAmount = 0;
             addAmount++;
         } else if (upgradeCounter == 71 && addAmount == 14) {
+            itemAmount = 0;
+            addAmount++;
+        } else if (upgradeCounter == 76 && addAmount == 15) {
+            itemAmount = 0;
+            addAmount++;
+        } else if (upgradeCounter == 81 && addAmount == 16) {
+            itemAmount = 0;
+            addAmount++;
+        } else if (upgradeCounter == 86 && addAmount == 17) {
+            itemAmount = 0;
+            addAmount++;
+        } else if (upgradeCounter == 91 && addAmount == 18) {
             itemAmount = 0;
             addAmount++;
         }
@@ -220,11 +251,34 @@ public class MainActivity extends AppCompatActivity {
             output3.setTextColor(Color.parseColor("#000000")); //черный
             output3.setBackgroundColor(Color.parseColor("#e6f725")); //ярко-желтый
             return "Сера";
+
+        } else if (upgradeCounter <= 75) {
+            output3.setText("PRODUCE SOME ARSENIC!");
+            output3.setTextColor(Color.parseColor("#000000")); //черный
+            output3.setBackgroundColor(Color.parseColor("#e0ded1")); //бело-желтый
+            return "Мышьяк";
+        } else if (upgradeCounter <= 80) {
+            output3.setText("PRODUCE SOME BISMUTH!");
+            output3.setTextColor(Color.parseColor("#000000")); //черный
+            output3.setBackgroundColor(Color.parseColor("#8f8777")); //серо-оранжевый
+            return "Висмут";
+        } else if (upgradeCounter <= 85) {
+            output3.setText("PRODUCE SOME PHOSPHORUS!");
+            output3.setTextColor(Color.parseColor("#ffffff")); //белый
+            output3.setBackgroundColor(Color.parseColor("#910a15")); //красный
+            return "Фосфор";
+        } else if (upgradeCounter <= 90) {
+            output3.setText("PRODUCE SOME COBALT!");
+            output3.setTextColor(Color.parseColor("#000000")); //черный
+            output3.setBackgroundColor(Color.parseColor("#ebedfc")); //бело-синий
+            return "Кобальт";
+
         }
 
-//TODO: + 50. + Сменить фон на картинку + Замена на Switch case + тест формулы.
 
+//TODO: + 42. + Сменить фон на картинку + Замена на Switch case + тест формулы.
 
+        
         output3.setText("Antimatter!");
         return "Антиматерия";
     }
