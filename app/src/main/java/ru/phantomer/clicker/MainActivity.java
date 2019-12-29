@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private int prestige = 0;
     int needForPrestige = 5;
     int clickingProducing = 1;
+    int upgradeProducing = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,91 +44,129 @@ public class MainActivity extends AppCompatActivity {
         if (itemAmount >= upgrade) {
             itemAmount -= upgrade;
             clickingProducing++;
-            upgrade += 10 * clickingProducing; //DID IT
+            upgrade += 10 * upgradeProducing; //DID IT
             upgradeCounter++;
+            upgradeProducing++;
             output2.setText("UPGRADE!" + "\n" + "Цена апгрейда: " + "\n" + upgrade);
 
-            if (nowIs().equals("Дерево"))
-                output.setText("Кол-во дерева: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            else if (nowIs().equals("Камень"))
-                output.setText("Кол-во камня: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            else if (nowIs().equals("Уголь"))
-                output.setText("Кол-во угля: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            else if (nowIs().equals("Медь"))
-                output.setText("Кол-во меди: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            else if (nowIs().equals("Серебро"))
-                output.setText("Кол-во серебра: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            else if (nowIs().equals("Золото"))
-                output.setText("Кол-во золота: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            else if (nowIs().equals("Свинец"))
-                output.setText("Кол-во свинца: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            else if (nowIs().equals("Олово"))
-                output.setText("Кол-во олова: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            else if (nowIs().equals("Железо"))
-                output.setText("Кол-во железа: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            else if (nowIs().equals("Углерод"))
-                output.setText("Кол-во углерода: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            else if (nowIs().equals("Сурьма"))
-                output.setText("Кол-во сурьмы: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            else if (nowIs().equals("Ртуть"))
-                output.setText("Кол-во ртути: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            else if (nowIs().equals("Цинк"))
-                output.setText("Кол-во цинка: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            else if (nowIs().equals("Сера"))
-                output.setText("Кол-во серы: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            else if (nowIs().equals("Мышьяк"))
-                output.setText("Кол-во мышьяка: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            else if (nowIs().equals("Висмут"))
-                output.setText("Кол-во висмута: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            else if (nowIs().equals("Фосфор"))
-                output.setText("Кол-во фосфора: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            else if (nowIs().equals("Кобальт"))
-                output.setText("Кол-во кобальта: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+            switch (nowIs()) {
+                case "Дерево":
+                    output.setText("Кол-во дерева: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+                case "Камень":
+                    output.setText("Кол-во камня: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+                case "Уголь":
+                    output.setText("Кол-во угля: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+                case "Медь":
+                    output.setText("Кол-во меди: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+                case "Серебро":
+                    output.setText("Кол-во серебра: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+                case "Золото":
+                    output.setText("Кол-во золота: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+                case "Свинец":
+                    output.setText("Кол-во свинца: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+                case "Олово":
+                    output.setText("Кол-во олова: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+                case "Железо":
+                    output.setText("Кол-во железа: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+                case "Углерод":
+                    output.setText("Кол-во углерода: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+                case "Сурьма":
+                    output.setText("Кол-во сурьмы: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+                case "Ртуть":
+                    output.setText("Кол-во ртути: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+                case "Цинк":
+                    output.setText("Кол-во цинка: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+                case "Сера":
+                    output.setText("Кол-во серы: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+                case "Мышьяк":
+                    output.setText("Кол-во мышьяка: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+                case "Висмут":
+                    output.setText("Кол-во висмута: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+                case "Фосфор":
+                    output.setText("Кол-во фосфора: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+                case "Кобальт":
+                    output.setText("Кол-во кобальта: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                    break;
+            }
         }
     }
 
     //Клики и вывод текста на textView
     public void clicking(View view) {
         itemAmount += clickingProducing;
-        if (nowIs().equals("Дерево"))
-            output.setText("Кол-во дерева: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-        else if (nowIs().equals("Камень"))
-            output.setText("Кол-во камня: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-        else if (nowIs().equals("Уголь"))
-            output.setText("Кол-во угля: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-        else if (nowIs().equals("Медь"))
-            output.setText("Кол-во меди: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-        else if (nowIs().equals("Серебро"))
-            output.setText("Кол-во серебра: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-        else if (nowIs().equals("Золото"))
-            output.setText("Кол-во золота: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-        else if (nowIs().equals("Свинец"))
-            output.setText("Кол-во свинца: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-        else if (nowIs().equals("Олово"))
-            output.setText("Кол-во олова: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-        else if (nowIs().equals("Железо"))
-            output.setText("Кол-во железа: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-        else if (nowIs().equals("Углерод"))
-            output.setText("Кол-во углерода: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-        else if (nowIs().equals("Сурьма"))
-            output.setText("Кол-во сурьмы: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-        else if (nowIs().equals("Ртуть"))
-            output.setText("Кол-во ртути: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-        else if (nowIs().equals("Цинк"))
-            output.setText("Кол-во цинка: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-        else if (nowIs().equals("Сера"))
-            output.setText("Кол-во серы: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-
-        else if (nowIs().equals("Мышьяк"))
-            output.setText("Кол-во мышьяка: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-        else if (nowIs().equals("Висмут"))
-            output.setText("Кол-во висмута: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-        else if (nowIs().equals("Фосфор"))
-            output.setText("Кол-во фосфора: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-        else if (nowIs().equals("Кобальт"))
-            output.setText("Кол-во кобальта: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-
-
+        switch (nowIs()) {
+            case "Дерево":
+                output.setText("Кол-во дерева: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+            case "Камень":
+                output.setText("Кол-во камня: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+            case "Уголь":
+                output.setText("Кол-во угля: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+            case "Медь":
+                output.setText("Кол-во меди: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+            case "Серебро":
+                output.setText("Кол-во серебра: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+            case "Золото":
+                output.setText("Кол-во золота: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+            case "Свинец":
+                output.setText("Кол-во свинца: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+            case "Олово":
+                output.setText("Кол-во олова: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+            case "Железо":
+                output.setText("Кол-во железа: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+            case "Углерод":
+                output.setText("Кол-во углерода: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+            case "Сурьма":
+                output.setText("Кол-во сурьмы: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+            case "Ртуть":
+                output.setText("Кол-во ртути: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+            case "Цинк":
+                output.setText("Кол-во цинка: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+            case "Сера":
+                output.setText("Кол-во серы: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+            case "Мышьяк":
+                output.setText("Кол-во мышьяка: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+            case "Висмут":
+                output.setText("Кол-во висмута: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+            case "Фосфор":
+                output.setText("Кол-во фосфора: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+            case "Кобальт":
+                output.setText("Кол-во кобальта: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+                break;
+        }
     }
 
     //Определение ресурсов и их вывод на кнопку
@@ -188,6 +227,7 @@ public class MainActivity extends AppCompatActivity {
             itemAmount = 0;
             addAmount++;
         }
+
         if (upgradeCounter < 5) {
             output3.setText("CHOP DOWN SOME TREES!");
             output3.setTextColor(Color.parseColor("#ffffff")); //белый
@@ -278,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
 
 //TODO: + 42. + Сменить фон на картинку + Замена на Switch case + тест формулы.
 
-        
+
         output3.setText("Antimatter!");
         return "Антиматерия";
     }
@@ -291,6 +331,7 @@ public class MainActivity extends AppCompatActivity {
             upgrade = 100;
             upgradeCounter = 0;
             addAmount = 1;
+            upgradeProducing = 1;
             output.setText("Кол-во дерева: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
             output2.setText("Цена апгрейда: " + "\n" + upgrade);
             output3.setText("CHOP DOWN SOME TREES!");
