@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     int needForPrestige = 5;
     int clickingProducing = 1;
     int upgradeProducing = 1;
+    int themeNow = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         output3.setBackgroundColor(Color.parseColor("#357d2f"));
         output4 = findViewById(R.id.button3);
         output4.setText("PRESTIGE!" + "\n" + "REQ.LVL= " + needForPrestige);
+
+        //String color = "#000000";
     }
 
     //Улучшения и вывод текста на textView и на TextView2
@@ -316,7 +319,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-//TODO: + 42. + Сменить фон на картинку + Замена на Switch case + тест формулы.
+//TODO: + 42. + Сменить фон на картинку + тест формулы + сменить иконку
 
 
         output3.setText("Antimatter!");
@@ -339,6 +342,16 @@ public class MainActivity extends AppCompatActivity {
             output3.setBackgroundColor(Color.parseColor("#357d2f")); //зелёный
             needForPrestige += 5;
             output4.setText("PRESTIGE!" + "\n" + "REQ.LVL= " + needForPrestige);
+        }
+    }
+
+    public void theme(View view) {
+        if (themeNow == 0) {
+            findViewById(R.id.background1).setBackgroundColor(Color.parseColor("#000000")); //черный
+            themeNow++;
+        } else if (themeNow == 1) {
+            findViewById(R.id.background1).setBackgroundColor(Color.parseColor("#ffffff")); //белый
+            themeNow = 0;
         }
     }
 }
