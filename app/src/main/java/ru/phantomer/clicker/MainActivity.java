@@ -14,15 +14,16 @@ public class MainActivity extends AppCompatActivity {
     private TextView output2;
     private TextView output3;
     private TextView output4;
-    public double itemAmount = 0;
+    private TextView output5;
+    private double itemAmount = 0;
     private int upgrade = 100;
     private int upgradeCounter = 0;
-    public int addAmount = 1;
+    private int addAmount = 1;
     private int prestige = 0;
-    int needForPrestige = 5;
-    int clickingProducing = 1;
-    int upgradeProducing = 1;
-    int themeNow = 0;
+    private int needForPrestige = 5;
+    private int clickingProducing = 1;
+    private int upgradeProducing = 1;
+    private int themeNow = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
         output3.setBackgroundColor(Color.parseColor("#357d2f"));
         output4 = findViewById(R.id.button3);
         output4.setText("PRESTIGE!" + "\n" + "REQ.LVL= " + needForPrestige);
-
-        //String color = "#000000";
+        output5 = findViewById(R.id.button5);
     }
 
     //Улучшения и вывод текста на textView и на TextView2
@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
             upgradeCounter++;
             upgradeProducing++;
             output2.setText("UPGRADE!" + "\n" + "Цена апгрейда: " + "\n" + upgrade);
+
+            //output.setText("Кол-во ЭЛЕМЕНТА: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
 
             switch (nowIs()) {
                 case "Дерево":
@@ -114,6 +116,9 @@ public class MainActivity extends AppCompatActivity {
     //Клики и вывод текста на textView
     public void clicking(View view) {
         itemAmount += clickingProducing;
+
+        //output.setText("Кол-во ЭЛЕМЕНТА: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
+
         switch (nowIs()) {
             case "Дерево":
                 output.setText("Кол-во дерева: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
@@ -175,61 +180,19 @@ public class MainActivity extends AppCompatActivity {
     //Определение ресурсов и их вывод на кнопку
     public String nowIs() {
 
-        if (upgradeCounter == 5 && addAmount == 1) {
-            itemAmount = 0;
-            addAmount++;
-        } else if (upgradeCounter == 11 && addAmount == 2) {
-            itemAmount = 0;
-            addAmount++;
-        } else if (upgradeCounter == 16 && addAmount == 3) {
-            itemAmount = 0;
-            addAmount++;
-        } else if (upgradeCounter == 21 && addAmount == 4) {
-            itemAmount = 0;
-            addAmount++;
-        } else if (upgradeCounter == 26 && addAmount == 5) {
-            itemAmount = 0;
-            addAmount++;
-        } else if (upgradeCounter == 31 && addAmount == 6) {
-            itemAmount = 0;
-            addAmount++;
-        } else if (upgradeCounter == 36 && addAmount == 7) {
-            itemAmount = 0;
-            addAmount++;
-        } else if (upgradeCounter == 41 && addAmount == 8) {
-            itemAmount = 0;
-            addAmount++;
-        } else if (upgradeCounter == 46 && addAmount == 9) {
-            itemAmount = 0;
-            addAmount++;
-        } else if (upgradeCounter == 51 && addAmount == 10) {
-            itemAmount = 0;
-            addAmount++;
-        } else if (upgradeCounter == 56 && addAmount == 11) {
-            itemAmount = 0;
-            addAmount++;
-        } else if (upgradeCounter == 61 && addAmount == 12) {
-            itemAmount = 0;
-            addAmount++;
-        } else if (upgradeCounter == 66 && addAmount == 13) {
-            itemAmount = 0;
-            addAmount++;
-        } else if (upgradeCounter == 71 && addAmount == 14) {
-            itemAmount = 0;
-            addAmount++;
-        } else if (upgradeCounter == 76 && addAmount == 15) {
-            itemAmount = 0;
-            addAmount++;
-        } else if (upgradeCounter == 81 && addAmount == 16) {
-            itemAmount = 0;
-            addAmount++;
-        } else if (upgradeCounter == 86 && addAmount == 17) {
-            itemAmount = 0;
-            addAmount++;
-        } else if (upgradeCounter == 91 && addAmount == 18) {
+        if ((upgradeCounter % 5 == 1 && addAmount == upgradeCounter / 5)
+                || (upgradeCounter == 5 && addAmount == 1)) {
             itemAmount = 0;
             addAmount++;
         }
+
+
+/*if (upgradeCounter<ЧИСЛО){
+        output3.setText("CHOP DOWN SOME НАЗВ.АНГЛ!");
+        output3.setTextColor(Color.parseColor("ХЕКС ЦВЕТ текста"));
+        output3.setBackgroundColor(Color.parseColor("ХЕКС ЦВЕТ фона"));
+        return "РЕСУРС";
+        */
 
         if (upgradeCounter < 5) {
             output3.setText("CHOP DOWN SOME TREES!");
@@ -294,7 +257,6 @@ public class MainActivity extends AppCompatActivity {
             output3.setTextColor(Color.parseColor("#000000")); //черный
             output3.setBackgroundColor(Color.parseColor("#e6f725")); //ярко-желтый
             return "Сера";
-
         } else if (upgradeCounter <= 75) {
             output3.setText("PRODUCE SOME ARSENIC!");
             output3.setTextColor(Color.parseColor("#000000")); //черный
@@ -315,11 +277,10 @@ public class MainActivity extends AppCompatActivity {
             output3.setTextColor(Color.parseColor("#000000")); //черный
             output3.setBackgroundColor(Color.parseColor("#ebedfc")); //бело-синий
             return "Кобальт";
-
         }
 
 
-//TODO: + 42. + Сменить фон на картинку + тест формулы + сменить иконку
+//TODO: + 42. + Сменить фон на картинку + тест формулы + сменить иконку + смена цвета текста
 
 
         output3.setText("Antimatter!");
@@ -344,13 +305,17 @@ public class MainActivity extends AppCompatActivity {
             output4.setText("PRESTIGE!" + "\n" + "REQ.LVL= " + needForPrestige);
         }
     }
-
+    //Смена темы.
     public void theme(View view) {
         if (themeNow == 0) {
             findViewById(R.id.background1).setBackgroundColor(Color.parseColor("#000000")); //черный
+            output5.setBackgroundColor(Color.parseColor("#ffffff")); //белый
+            output5.setTextColor(Color.parseColor("#000000")); //черный
             themeNow++;
         } else if (themeNow == 1) {
             findViewById(R.id.background1).setBackgroundColor(Color.parseColor("#ffffff")); //белый
+            output5.setBackgroundColor(Color.parseColor("#000000")); //черный
+            output5.setTextColor(Color.parseColor("#ffffff")); //белый
             themeNow = 0;
         }
     }
