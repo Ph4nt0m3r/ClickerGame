@@ -11,10 +11,10 @@ import android.content.pm.ActivityInfo;
 public class MainActivity extends AppCompatActivity {
 
     private TextView output;
-    private TextView output2;
-    private TextView output3;
-    private TextView output4;
-    private TextView output5;
+    private TextView upgradeButton;
+    private TextView clickButton;
+    private TextView prestigeButton;
+    private TextView themeButton;
     private double itemAmount = 0;
     private int upgrade = 100;
     private int upgradeCounter = 0;
@@ -32,25 +32,24 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         output = findViewById(R.id.textView);
         output.setText("Кол-во дерева: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-        output2 = findViewById(R.id.button2);
-        output2.setText("UPGRADE!" + "\n" + "Цена апгрейда: " + "\n" + upgrade);
-        output3 = findViewById(R.id.button);
-        output3.setBackgroundColor(Color.parseColor("#357d2f"));
-        output4 = findViewById(R.id.button3);
-        output4.setText("PRESTIGE!" + "\n" + "REQ.LVL= " + needForPrestige);
-        output5 = findViewById(R.id.button5);
+        upgradeButton = findViewById(R.id.button2);
+        upgradeButton.setText("UPGRADE!" + "\n" + "Цена апгрейда: " + "\n" + upgrade);
+        clickButton = findViewById(R.id.button);
+        prestigeButton = findViewById(R.id.button3);
+        prestigeButton.setText("PRESTIGE!" + "\n" + "REQ.LVL= " + needForPrestige);
+        themeButton = findViewById(R.id.button5);
     }
 
-    //Улучшения и вывод текста на textView и на TextView2
+    //Улучшения и вывод текста на textView
     public void upgrade(View view) {
         nowIs();
         if (itemAmount >= upgrade) {
             itemAmount -= upgrade;
             clickingProducing++;
-            upgrade += 10 * upgradeProducing; //DID IT
+            upgrade += 10 * upgradeProducing;
             upgradeCounter++;
             upgradeProducing++;
-            output2.setText("UPGRADE!" + "\n" + "Цена апгрейда: " + "\n" + upgrade);
+            upgradeButton.setText("UPGRADE!" + "\n" + "Цена апгрейда: " + "\n" + upgrade);
 
             //output.setText("Кол-во ЭЛЕМЕНТА: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
 
@@ -188,103 +187,107 @@ public class MainActivity extends AppCompatActivity {
 
 
 /*if (upgradeCounter<ЧИСЛО){
-        output3.setText("CHOP DOWN SOME НАЗВ.АНГЛ!");
-        output3.setTextColor(Color.parseColor("ХЕКС ЦВЕТ текста"));
-        output3.setBackgroundColor(Color.parseColor("ХЕКС ЦВЕТ фона"));
+        clickButton.setText("CHOP DOWN SOME НАЗВ.АНГЛ!");
+        clickButton.setTextColor(Color.parseColor("ХЕКС ЦВЕТ текста"));
+        clickButton.setBackgroundColor(Color.parseColor("ХЕКС ЦВЕТ фона"));
         return "РЕСУРС";
         */
 
         if (upgradeCounter < 5) {
-            output3.setText("CHOP DOWN SOME TREES!");
-            output3.setTextColor(Color.parseColor("#ffffff")); //белый
-            output3.setBackgroundColor(Color.parseColor("#357d2f")); //зелёный
+            clickButton.setText("CHOP DOWN SOME TREES!");
+            clickButton.setTextColor(Color.parseColor("#ffffff")); //белый
+            clickButton.setBackgroundColor(Color.parseColor("#357d2f")); //зелёный
             return "Дерево";
         } else if (upgradeCounter <= 10) {
-            output3.setText("MINE SOME STONE!");
-            output3.setBackgroundColor(Color.parseColor("#999c98")); //серый
+            clickButton.setText("MINE SOME STONE!");
+            clickButton.setBackgroundColor(Color.parseColor("#999c98")); //серый
             return "Камень";
         } else if (upgradeCounter <= 15) {
-            output3.setText("MINE SOME COAL!");
-            output3.setTextColor(Color.parseColor("#ffffff")); //белый
-            output3.setBackgroundColor(Color.parseColor("#4c4d4c")); //темно-серый
+            clickButton.setText("MINE SOME COAL!");
+            clickButton.setTextColor(Color.parseColor("#ffffff")); //белый
+            clickButton.setBackgroundColor(Color.parseColor("#4c4d4c")); //темно-серый
             return "Уголь";
         } else if (upgradeCounter <= 20) {
-            output3.setText("MINE SOME COPPER!");
-            output3.setBackgroundColor(Color.parseColor("#e87d13")); //оранжевый
+            clickButton.setText("MINE SOME COPPER!");
+            clickButton.setBackgroundColor(Color.parseColor("#e87d13")); //оранжевый
             return "Медь";
         } else if (upgradeCounter <= 25) {
-            output3.setText("MINE SOME SILVER!");
-            output3.setBackgroundColor(Color.parseColor("#ebebeb")); //светло-серый
+            clickButton.setText("MINE SOME SILVER!");
+            clickButton.setTextColor(Color.parseColor("#000000")); //черный
+            clickButton.setBackgroundColor(Color.parseColor("#ebebeb")); //светло-серый
             return "Серебро";
         } else if (upgradeCounter <= 30) {
-            output3.setText("MINE SOME GOLD!");
-            output3.setBackgroundColor(Color.parseColor("#fff93d")); //жёлто-белый
+            clickButton.setText("MINE SOME GOLD!");
+            clickButton.setBackgroundColor(Color.parseColor("#fff93d")); //жёлто-белый
             return "Золото";
         } else if (upgradeCounter <= 35) {
-            output3.setText("MINE SOME LEAD!");
-            output3.setBackgroundColor(Color.parseColor("#b1c0c9")); //светло-серо-синий
+            clickButton.setText("MINE SOME LEAD!");
+            clickButton.setTextColor(Color.parseColor("#ffffff")); //белый
+            clickButton.setBackgroundColor(Color.parseColor("#b1c0c9")); //светло-серо-синий
             return "Свинец";
         } else if (upgradeCounter <= 40) {
-            output3.setText("MINE SOME TIN!");
-            output3.setBackgroundColor(Color.parseColor("#f7fff7")); //бело-зеленый
+            clickButton.setText("MINE SOME TIN!");
+            clickButton.setTextColor(Color.parseColor("#000000")); //черный
+            clickButton.setBackgroundColor(Color.parseColor("#f7fff7")); //бело-зеленый
             return "Олово";
         } else if (upgradeCounter <= 45) {
-            output3.setText("MINE SOME IRON!");
-            output3.setBackgroundColor(Color.parseColor("#dbdad5")); //серо-желтый
+            clickButton.setText("MINE SOME IRON!");
+            clickButton.setBackgroundColor(Color.parseColor("#dbdad5")); //серо-желтый
             return "Железо";
         } else if (upgradeCounter <= 50) {
-            output3.setText("PRODUCE SOME CARBON!");
-            output3.setTextColor(Color.parseColor("#ffffff")); //белый
-            output3.setBackgroundColor(Color.parseColor("#000000")); //черный
+            clickButton.setText("PRODUCE SOME CARBON!");
+            clickButton.setTextColor(Color.parseColor("#ffffff")); //белый
+            clickButton.setBackgroundColor(Color.parseColor("#000000")); //черный
             return "Углерод";
         } else if (upgradeCounter <= 55) {
-            output3.setText("PRODUCE SOME ANTIMONY!");
-            output3.setTextColor(Color.parseColor("#000000")); //черный
-            output3.setBackgroundColor(Color.parseColor("#b6f4fa")); //бело-голубой
+            clickButton.setText("PRODUCE SOME ANTIMONY!");
+            clickButton.setTextColor(Color.parseColor("#000000")); //черный
+            clickButton.setBackgroundColor(Color.parseColor("#b6f4fa")); //бело-голубой
             return "Сурьма";
         } else if (upgradeCounter <= 60) {
-            output3.setText("PRODUCE SOME QUICKSILVER!");
-            output3.setTextColor(Color.parseColor("#000000")); //черный
-            output3.setBackgroundColor(Color.parseColor("#d6d6d6")); //серебристый
+            clickButton.setText("PRODUCE SOME QUICKSILVER!");
+            clickButton.setTextColor(Color.parseColor("#000000")); //черный
+            clickButton.setBackgroundColor(Color.parseColor("#d6d6d6")); //серебристый
             return "Ртуть";
         } else if (upgradeCounter <= 65) {
-            output3.setText("PRODUCE SOME ZINC!");
-            output3.setTextColor(Color.parseColor("#000000")); //черный
-            output3.setBackgroundColor(Color.parseColor("#d7eafc")); //бело-синий
+            clickButton.setText("PRODUCE SOME ZINC!");
+            clickButton.setTextColor(Color.parseColor("#000000")); //черный
+            clickButton.setBackgroundColor(Color.parseColor("#d7eafc")); //бело-синий
             return "Цинк";
         } else if (upgradeCounter <= 70) {
-            output3.setText("PRODUCE SOME SULFUR!");
-            output3.setTextColor(Color.parseColor("#000000")); //черный
-            output3.setBackgroundColor(Color.parseColor("#e6f725")); //ярко-желтый
+            clickButton.setText("PRODUCE SOME SULFUR!");
+            clickButton.setTextColor(Color.parseColor("#000000")); //черный
+            clickButton.setBackgroundColor(Color.parseColor("#e6f725")); //ярко-желтый
             return "Сера";
         } else if (upgradeCounter <= 75) {
-            output3.setText("PRODUCE SOME ARSENIC!");
-            output3.setTextColor(Color.parseColor("#000000")); //черный
-            output3.setBackgroundColor(Color.parseColor("#e0ded1")); //бело-желтый
+            clickButton.setText("PRODUCE SOME ARSENIC!");
+            clickButton.setTextColor(Color.parseColor("#000000")); //черный
+            clickButton.setBackgroundColor(Color.parseColor("#e0ded1")); //бело-желтый
             return "Мышьяк";
         } else if (upgradeCounter <= 80) {
-            output3.setText("PRODUCE SOME BISMUTH!");
-            output3.setTextColor(Color.parseColor("#000000")); //черный
-            output3.setBackgroundColor(Color.parseColor("#8f8777")); //серо-оранжевый
+            clickButton.setText("PRODUCE SOME BISMUTH!");
+            clickButton.setTextColor(Color.parseColor("#ffffff")); //белый
+            clickButton.setBackgroundColor(Color.parseColor("#8f8777")); //серо-оранжевый
             return "Висмут";
         } else if (upgradeCounter <= 85) {
-            output3.setText("PRODUCE SOME PHOSPHORUS!");
-            output3.setTextColor(Color.parseColor("#ffffff")); //белый
-            output3.setBackgroundColor(Color.parseColor("#910a15")); //красный
+            clickButton.setText("PRODUCE SOME PHOSPHORUS!");
+            clickButton.setTextColor(Color.parseColor("#ffffff")); //белый
+            clickButton.setBackgroundColor(Color.parseColor("#910a15")); //красный
             return "Фосфор";
         } else if (upgradeCounter <= 90) {
-            output3.setText("PRODUCE SOME COBALT!");
-            output3.setTextColor(Color.parseColor("#000000")); //черный
-            output3.setBackgroundColor(Color.parseColor("#ebedfc")); //бело-синий
+            clickButton.setText("PRODUCE SOME COBALT!");
+            clickButton.setTextColor(Color.parseColor("#000000")); //черный
+            clickButton.setBackgroundColor(Color.parseColor("#ebedfc")); //бело-синий
             return "Кобальт";
         }
 
 
-//TODO: + 42. + Сменить фон на картинку + тест формулы + сменить иконку + смена цвета текста
+//TODO: + 42. + Сменить фон на картинку + сменить иконку + смена цвета текста + меню выбора цвета + подтверждение сброса уровня
 
 
-        output3.setText("Antimatter!");
+            clickButton.setText("Antimatter!");
         return "Антиматерия";
+
     }
 
     //Механика престижа.
@@ -297,25 +300,27 @@ public class MainActivity extends AppCompatActivity {
             addAmount = 1;
             upgradeProducing = 1;
             output.setText("Кол-во дерева: " + itemAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
-            output2.setText("Цена апгрейда: " + "\n" + upgrade);
-            output3.setText("CHOP DOWN SOME TREES!");
-            output3.setTextColor(Color.parseColor("#ffffff")); //белый
-            output3.setBackgroundColor(Color.parseColor("#357d2f")); //зелёный
+            upgradeButton.setText("Цена апгрейда: " + "\n" + upgrade);
+            clickButton.setText("CHOP DOWN SOME TREES!");
+            clickButton.setTextColor(Color.parseColor("#ffffff")); //белый
+            clickButton.setBackgroundColor(Color.parseColor("#357d2f")); //зелёный
             needForPrestige += 5;
-            output4.setText("PRESTIGE!" + "\n" + "REQ.LVL= " + needForPrestige);
+            prestigeButton.setText("PRESTIGE!" + "\n" + "REQ.LVL= " + needForPrestige);
         }
     }
     //Смена темы.
     public void theme(View view) {
         if (themeNow == 0) {
             findViewById(R.id.background1).setBackgroundColor(Color.parseColor("#000000")); //черный
-            output5.setBackgroundColor(Color.parseColor("#ffffff")); //белый
-            output5.setTextColor(Color.parseColor("#000000")); //черный
+            output.setTextColor(Color.parseColor("#ffffff"));
+            themeButton.setBackgroundColor(Color.parseColor("#ffffff")); //белый
+            themeButton.setTextColor(Color.parseColor("#000000")); //черный
             themeNow++;
         } else if (themeNow == 1) {
             findViewById(R.id.background1).setBackgroundColor(Color.parseColor("#ffffff")); //белый
-            output5.setBackgroundColor(Color.parseColor("#000000")); //черный
-            output5.setTextColor(Color.parseColor("#ffffff")); //белый
+            output.setTextColor(Color.parseColor("#000000"));
+            themeButton.setBackgroundColor(Color.parseColor("#000000")); //черный
+            themeButton.setTextColor(Color.parseColor("#ffffff")); //белый
             themeNow = 0;
         }
     }
