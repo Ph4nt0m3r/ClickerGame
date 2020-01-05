@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         output.setText("Кол-во " + CurrentElement().getSklonenie() + ": " + CurrentElement().elementAmount + "\n" + "PRESTIGE LVL= " + prestige + "\n" + "PRODUCING= " + clickingProducing + "\n" + "LVL= " + upgradeCounter);
 
         /*temp*/ prestigeClickAmount = 0;
-
+        /*temp*/ prestigeButton.setText("PRESTIGE!" + "\n" + "REQ.LVL= " + needForPrestige);
     }
 
     //Улучшения и вывод текста на textView
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         /*temp*/ prestigeClickAmount = 0;
-
+        /*temp*/ prestigeButton.setText("PRESTIGE!" + "\n" + "REQ.LVL= " + needForPrestige);
     }
 
     //Определение ресурсов и их вывод на кнопку
@@ -82,12 +82,14 @@ public class MainActivity extends AppCompatActivity {
     // Механика престижа.
     public void prestigeReset(View view) {
 
-            /*temp*/if (prestigeClickAmount==1) {
             /*temp*/ prestigeClickAmount++;
+            /*temp*/if (prestigeClickAmount==1) {
             /*temp*/ prestigeButton.setText("Подтвердите действие повторным нажатием");
+            /*temp*/ return;
             }
-            /*temp*/ else if ((prestigeClickAmount<=2) & (upgradeCounter < needForPrestige));
+            /*temp*/ else if ((prestigeClickAmount==2) & (upgradeCounter < needForPrestige))
             /*temp*/ prestigeButton.setText("PRESTIGE!" + "\n" + "REQ.LVL= " + needForPrestige);
+            /*temp*/ prestigeClickAmount=0;
 
         if ((upgradeCounter >= needForPrestige)&(prestigeClickAmount == 2)) {
             prestige++;
@@ -102,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
             clickButton.setBackgroundColor(CurrentElement().getBackgroundColor());
             needForPrestige += 10;
             prestigeButton.setText("PRESTIGE!" + "\n" + "REQ.LVL= " + needForPrestige);
+            /*temp*/ prestigeClickAmount=0;
         }
     }
 
@@ -114,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         themeNow = !themeNow;
 
         /*temp*/ prestigeClickAmount = 0;
-
+        /*temp*/ prestigeButton.setText("PRESTIGE!" + "\n" + "REQ.LVL= " + needForPrestige);
     }
 
     //TODO: + 30. + Сменить фон на картинку + сменить иконку + смена цвета текста +
