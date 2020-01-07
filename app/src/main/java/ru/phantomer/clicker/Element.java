@@ -42,7 +42,11 @@ public enum Element {
     ZIRCONIUM ("Цирконий", 155, 0xFF000000, Color.parseColor("#ede8da"), "PRODUCE SOME ZIRCONIUM!", "циркония",0),
     STRONTIUM ("Стронций", 160, 0xFF000000, Color.parseColor("#ffeebf"),"PRODUCE SOME STRONTIUM!", "стронция",0),
     YTTRIUM ("Иттрий", 165, 0xFF000000, Color.parseColor("#c4c4c4"), "PRODUCE SOME YTTRIUM!", "иттрия", 0),
-    TITAN ("Титан", 170, 0xFF000000,Color.parseColor("#ededed"), "PRODUCE SOME TITAN!", "титана",0),;
+    TITAN ("Титан", 170, 0xFF000000,Color.parseColor("#ededed"), "PRODUCE SOME TITAN!", "титана",0),
+    CHROMIUM ("Хром",175, 0xFF000000, Color.parseColor("#d1f3ff"), "PRODUCE SOME CHROMIUM!", "хрома",0),
+    BERYLLIUM ("Бериллий", 180, 0xFFFFFFFF, Color.parseColor("#494b52"), "PRODUCE SOME BERYLLIUM!", "берилия",0),
+    NIOBIUM ("Ниобий", 185, 0xFF000000, Color.parseColor("#97d2e6"), "PRODUCE SOME NIOBIUM!", "ниобия", 0),
+    TANTALUM ("тантал", 190, 0xFFFFFFFF, Color.parseColor("#5b6163"),"PRODUCE SOME TANTALUM!","тантала", 0),;
 
     private String name;
     private int upgradeStatus;
